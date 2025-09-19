@@ -1,0 +1,62 @@
+{
+  "palettes": {
+    "sunset": {
+      "name": "Sunset",
+      "primary": "#8B5CF6",
+      "secondary": "#EC4899",
+      "accent": "#F59E0B",
+      "background": "#FEF3C7",
+      "surface": "#FFFFFF",
+      "text": "#030303"
+    },
+    "ocean": {
+      "name": "Ocean",
+      "primary": "#10B981",
+      "secondary": "#3B82F6",
+      "accent": "#F97316",
+      "background": "#ECFDF5",
+      "surface": "#F0FDF4",
+      "text": "#030303"
+    }
+  },
+  "slot-content": [
+    { "label": "coding", "emoji": "💻" },
+    { "label": "design", "emoji": "🎨" },
+    { "label": "videogames", "emoji": "🎮" },
+    { "label": "league of legends", "emoji": "⚔️" },
+    { "label": "borderlands", "emoji": "🔫" },
+    { "label": "red dead redemption", "emoji": "🤠" },
+    { "label": "dark souls", "emoji": "💀" },
+    { "label": "bloodborne", "emoji": "🩸" },
+    { "label": "sekiro", "emoji": "🥷" },
+    { "label": "elden ring", "emoji": "💍" },
+    { "label": "sifu", "emoji": "🥋" },
+    { "label": "assassin's creed", "emoji": "🗡️" },
+    { "label": "call of duty", "emoji": "🎯" },
+    { "label": "minecraft", "emoji": "⛏️" },
+    { "label": "fallout", "emoji": "☢️" },
+    { "label": "the witcher", "emoji": "🐺" },
+    { "label": "age of empires", "emoji": "🏰" },
+    { "label": "food", "emoji": "🍽️" },
+    { "label": "beer", "emoji": "🍺" },
+    { "label": "gin tonic", "emoji": "🍸" },
+    { "label": "pizza", "emoji": "🍕" },
+    { "label": "pasta", "emoji": "🍝" },
+    { "label": "sandwiches", "emoji": "🥪" },
+    { "label": "burgers", "emoji": "🍔" },
+    { "label": "movies", "emoji": "🎬" },
+    { "label": "music", "emoji": "🎵" },
+    { "label": "metal", "emoji": "🤘" },
+    { "label": "jazz", "emoji": "🎷" },
+    { "label": "rock 'n roll", "emoji": "🎸" },
+    { "label": "hip hop", "emoji": "🎤" },
+    { "label": "reggae", "emoji": "🌴" },
+    { "label": "disco", "emoji": "🕺" },
+    { "label": "house", "emoji": "🏠" },
+    { "label": "techno", "emoji": "⚡" },
+    { "label": "psy-trance", "emoji": "🌀" },
+    { "label": "traveling", "emoji": "✈️" },
+    { "label": "nature", "emoji": "🌿" },
+    { "label": "you", "emoji": "❤️" }
+  ]
+}

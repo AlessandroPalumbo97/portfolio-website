@@ -1,5 +1,6 @@
 import './App.css';
 import Logo from './components/Logo';
+import { SlotMachine } from './components/SlotMachine';
 import { usePalettes } from './hooks/usePalettes';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       {/* Main Content - Centered */}
       <div className='flex-1 flex items-center justify-center p-8 relative z-10'>
         {/* Hi... LOVE Text - HUGE */}
-        <div className='text-center'>
+        <div className='text-left'>
           <p
             className='text-6xl md:text-8xl font-mattone font-normal leading-tight'
             style={{
@@ -25,17 +26,26 @@ function App() {
               transition: 'color 0.5s ease-in-out',
             }}
           >
-            Hi, I'm Alex and I{' '}
+            Hi, I'm{' '}
             <span
               className='font-mattone font-black'
               style={{
-                color: currentColors.primary,
-                transition: 'color 0.5s ease-in-out',
+                background: `linear-gradient(45deg, ${currentColors.primary}, ${currentColors.secondary})`,
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                transition: 'background 0.5s ease-in-out',
+                display: 'inline-block',
               }}
             >
-              LOVE
-            </span>
+              Alex
+            </span>{' '}
+            <br />
+            and I love
           </p>
+
+          {/* Slot Machine */}
+          <SlotMachine />
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import palettesData from '../assets/palettes.json';
+import data from '../assets/data.json';
 
 export interface Palette {
   name: string;
@@ -16,11 +16,11 @@ export interface Palettes {
 }
 
 export const usePalettes = () => {
-  const [palettes] = useState<Palettes>(palettesData);
+  const [palettes] = useState<Palettes>(data.palettes);
 
   // Get random initial palette
   const getRandomPaletteKey = () => {
-    const paletteKeys = Object.keys(palettesData);
+    const paletteKeys = Object.keys(data.palettes);
     return paletteKeys[Math.floor(Math.random() * paletteKeys.length)];
   };
 
@@ -29,7 +29,7 @@ export const usePalettes = () => {
   );
   const [currentColors, setCurrentColors] = useState<Palette>(() => {
     const randomKey = getRandomPaletteKey();
-    return palettesData[randomKey as keyof typeof palettesData];
+    return data.palettes[randomKey as keyof typeof data.palettes];
   });
 
   const switchPalette = (paletteKey: string) => {
