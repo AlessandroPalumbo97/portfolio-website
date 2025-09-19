@@ -1,2 +1,7 @@
 @import 'tailwindcss';
-@import './assets/fonts/fonts.css';
+@import './assets/fonts/typography.css';
+
+@theme {
+  --font-mattone: 'Mattone', sans-serif;
+  --font-leiko: 'Leiko', serif;
+}

@@ -6,8 +6,7 @@
     "accent": "#F59E0B",
     "background": "#FEF3C7",
     "surface": "#FFFFFF",
-    "text": "#1F2937",
-    "textSecondary": "#6B7280"
+    "text": "#030303"
   },
   "ocean": {
     "name": "Ocean",
@@ -16,7 +15,6 @@
     "accent": "#F97316",
     "background": "#ECFDF5",
     "surface": "#F0FDF4",
-    "text": "#064E3B",
-    "textSecondary": "#047857"
+    "text": "#030303"
   }
 }

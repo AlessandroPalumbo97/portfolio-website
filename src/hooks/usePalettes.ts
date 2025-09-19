@@ -9,7 +9,6 @@ export interface Palette {
   background: string;
   surface: string;
   text: string;
-  textSecondary: string;
 }
 
 export interface Palettes {

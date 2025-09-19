@@ -7,24 +7,50 @@ function App() {
 
   return (
     <main
-      className='min-h-screen flex flex-col items-center justify-center p-8'
+      className='min-h-screen flex flex-col'
       style={{
         backgroundColor: currentColors.background,
         color: currentColors.text,
         transition: 'background-color 0.5s ease-in-out, color 0.5s ease-in-out',
       }}
     >
-      <div
-        className='rounded-2xl shadow-xl p-8 max-w-md w-full'
+      {/* Main Content - Centered */}
+      <div className='flex-1 flex items-center justify-center p-8 relative z-10'>
+        {/* Hi... LOVE Text - HUGE */}
+        <div className='text-center'>
+          <p
+            className='text-6xl md:text-8xl font-mattone font-normal leading-tight'
+            style={{
+              color: currentColors.text,
+              transition: 'color 0.5s ease-in-out',
+            }}
+          >
+            Hi, I'm Alex and I{' '}
+            <span
+              className='font-mattone font-black'
+              style={{
+                color: currentColors.primary,
+                transition: 'color 0.5s ease-in-out',
+              }}
+            >
+              LOVE
+            </span>
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom Navbar */}
+      <nav
+        className='fixed bottom-0 left-0 right-0 p-6 rounded-t-3xl shadow-2xl relative z-10'
         style={{
           backgroundColor: currentColors.surface,
           transition: 'background-color 0.5s ease-in-out',
+          boxShadow: `0 -10px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04)`,
         }}
       >
-        {/* Logo Section */}
-        <div className='text-center mb-8'>
+        <div className='max-w-4xl mx-auto flex justify-center'>
           <div
-            className='w-32 h-32 mx-auto cursor-pointer hover:scale-105 transition-transform duration-200'
+            className='w-16 h-16 cursor-pointer hover:scale-105 transition-transform duration-200'
             onClick={switchToRandomPalette}
             title='Click to switch palette'
           >
@@ -36,29 +62,7 @@ function App() {
             />
           </div>
         </div>
-
-        {/* Hi... LOVE Text */}
-        <div className='text-center'>
-          <p
-            className='text-lg font-body'
-            style={{
-              color: currentColors.text,
-              transition: 'color 0.5s ease-in-out',
-            }}
-          >
-            Hi, I'm Alex and I{' '}
-            <span
-              className='font-bold font-display'
-              style={{
-                color: currentColors.primary,
-                transition: 'color 0.5s ease-in-out',
-              }}
-            >
-              LOVE
-            </span>
-          </p>
-        </div>
-      </div>
+      </nav>
     </main>
   );
 }
