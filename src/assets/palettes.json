@@ -1,26 +1,6 @@
 {
-  "test1": {
-    "name": "Test 1",
-    "primary": "#ff0000",
-    "secondary": "#00ff00",
-    "accent": "#0000ff",
-    "background": "#FFFFFF",
-    "surface": "#F8FAFC",
-    "text": "#000000",
-    "textSecondary": "#64748B"
-  },
-  "test2": {
-    "name": "Test 2",
-    "primary": "#333333",
-    "secondary": "#999999",
-    "accent": "#cccccc",
-    "background": "#FFFFFF",
-    "surface": "#1E293B",
-    "text": "#000000",
-    "textSecondary": "#94A3B8"
-  },
-  "test3": {
-    "name": "Test 3",
+  "sunset": {
+    "name": "Sunset",
     "primary": "#8B5CF6",
     "secondary": "#EC4899",
     "accent": "#F59E0B",
@@ -29,8 +9,8 @@
     "text": "#1F2937",
     "textSecondary": "#6B7280"
   },
-  "test4": {
-    "name": "Test 4",
+  "ocean": {
+    "name": "Ocean",
     "primary": "#10B981",
     "secondary": "#3B82F6",
     "accent": "#F97316",
@@ -38,15 +18,5 @@
     "surface": "#F0FDF4",
     "text": "#064E3B",
     "textSecondary": "#047857"
-  },
-  "test5": {
-    "name": "Test 5",
-    "primary": "#DC2626",
-    "secondary": "#7C3AED",
-    "accent": "#059669",
-    "background": "#1F2937",
-    "surface": "#374151",
-    "text": "#F9FAFB",
-    "textSecondary": "#D1D5DB"
   }
 }
