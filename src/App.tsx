@@ -26,26 +26,15 @@ function App() {
               transition: 'color 0.5s ease-in-out',
             }}
           >
-            Hi, I'm{' '}
-            <span
-              className='font-mattone font-black'
-              style={{
-                background: `linear-gradient(45deg, ${currentColors.primary}, ${currentColors.secondary})`,
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                transition: 'background 0.5s ease-in-out',
-                display: 'inline-block',
-              }}
-            >
-              Alex
-            </span>{' '}
+            Hi, I'm Alex
             <br />
             and I love
           </p>
 
           {/* Slot Machine */}
-          <SlotMachine />
+          <div className='-mt-2'>
+            <SlotMachine />
+          </div>
         </div>
       </div>
 
