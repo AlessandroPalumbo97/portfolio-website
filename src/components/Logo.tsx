@@ -29,11 +29,11 @@ const Logo: React.FC<LogoProps> = ({
       <defs>
         <style>
           {`
-            .zone-1 { fill: var(--color-zone-1, #ffce00); }
-            .zone-2 { fill: var(--color-zone-2, #ffe000); }
-            .zone-3 { fill: var(--color-zone-3, #ffe600); }
-            .zone-1-stroke { fill: none; stroke: var(--color-zone-1, #ffce00); stroke-miterlimit: 10; }
-            .zone-3-stroke { fill: none; stroke: var(--color-zone-3, #ffe600); stroke-miterlimit: 10; }
+            .zone-1 { fill: var(--color-zone-1, #ffce00); transition: fill 0.5s ease-in-out; }
+            .zone-2 { fill: var(--color-zone-2, #ffe000); transition: fill 0.5s ease-in-out; }
+            .zone-3 { fill: var(--color-zone-3, #ffe600); transition: fill 0.5s ease-in-out; }
+            .zone-1-stroke { fill: none; stroke: var(--color-zone-1, #ffce00); stroke-miterlimit: 10; transition: stroke 0.5s ease-in-out; }
+            .zone-3-stroke { fill: none; stroke: var(--color-zone-3, #ffe600); stroke-miterlimit: 10; transition: stroke 0.5s ease-in-out; }
           `}
         </style>
       </defs>
