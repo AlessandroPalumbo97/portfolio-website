@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import data from '../assets/data.json';
 import { usePalettes } from '../contexts/PaletteContext';
@@ -17,6 +17,8 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
   const { currentColors } = usePalettes();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [itemHeight, setItemHeight] = useState(192); // Default mobile height
+  const slotItemRef = useRef<HTMLDivElement>(null);
   const slotContent: SlotContent[] = data['slot-content'];
 
   // Set initial index to "coding" on component mount
@@ -28,6 +30,28 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
       setCurrentIndex(codingIndex);
     }
   }, [slotContent]);
+
+  // Update item height based on screen size
+  useEffect(() => {
+    const updateItemHeight = () => {
+      const width = window.innerWidth;
+      if (width >= 1280) {
+        setItemHeight(320); // 20rem
+      } else if (width >= 1024) {
+        setItemHeight(288); // 18rem
+      } else if (width >= 768) {
+        setItemHeight(256); // 16rem
+      } else if (width >= 640) {
+        setItemHeight(224); // 14rem
+      } else {
+        setItemHeight(192); // 12rem
+      }
+    };
+
+    updateItemHeight();
+    window.addEventListener('resize', updateItemHeight);
+    return () => window.removeEventListener('resize', updateItemHeight);
+  }, []);
 
   const handleClick = () => {
     if (isSpinning) return;
@@ -55,7 +79,7 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
         <motion.div
           className='slot-items'
           animate={{
-            y: -currentIndex * 300, // Fixed height: each item is 300px
+            y: -currentIndex * itemHeight, // Dynamic height based on screen size
           }}
           transition={{
             type: 'tween',
@@ -64,19 +88,23 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
           }}
         >
           {slotContent.map((item, index) => (
-            <div key={`${item.label}-${index}`} className='slot-item'>
+            <div
+              key={`${item.label}-${index}`}
+              className='slot-item'
+              ref={index === 0 ? slotItemRef : undefined}
+            >
               <div className='flex items-end gap-1'>
                 <span
                   className={clsx(
-                    'label text-6xl md:text-8xl font-mattone font-bold capitalize leading-tight',
-                    'transition-colors duration-500 ease-in-out hover:opacity-80 cursor-pointer'
+                    'label hero-text font-black capitalize',
+                    'cursor-pointer'
                   )}
                   style={{
                     color: currentColors.accent,
                   }}
                   onClick={handleClick}
                 >
-                  {item.label} {item.emoji}
+                  {item.emoji} {item.label}
                 </span>
               </div>
             </div>

@@ -23,10 +23,7 @@ const AppContent = () => {
         {/* Hero text */}
         <div className='text-left'>
           <p
-            className={clsx(
-              'text-6xl md:text-8xl font-mattone font-normal leading-tight',
-              'transition-colors duration-500 ease-in-out'
-            )}
+            className={clsx('hero-text')}
             style={{
               color: currentColors.text,
             }}
@@ -37,7 +34,7 @@ const AppContent = () => {
           </p>
 
           {/* Slot Machine */}
-          <div className='-mt-2 max-w-4xl mx-auto'>
+          <div className=''>
             <SlotMachine />
           </div>
         </div>
