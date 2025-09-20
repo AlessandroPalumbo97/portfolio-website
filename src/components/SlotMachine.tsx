@@ -58,8 +58,8 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
 
     setIsSpinning(true);
 
-    // Generate random spins with realistic timing
-    const spinCount = Math.floor(Math.random() * 8) + 6; // 6-13 spins
+    // Generate random spins with faster, smoother timing
+    const spinCount = Math.floor(Math.random() * 12) + 8; // 8-19 spins for more dramatic effect
     let currentSpin = 0;
 
     const spinInterval = setInterval(() => {
@@ -70,12 +70,18 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
         clearInterval(spinInterval);
         setIsSpinning(false);
       }
-    }, 100);
+    }, 60); // Faster interval for smoother animation
   };
 
   return (
     <div className={clsx('slot-machine', className)}>
-      <div className='slot-window'>
+      <div
+        className={clsx(
+          'slot-window',
+          'transition-all duration-300 ease-in-out',
+          isSpinning && 'blur-sm'
+        )}
+      >
         <motion.div
           className='slot-items'
           animate={{
@@ -84,7 +90,7 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
           transition={{
             type: 'tween',
             ease: isSpinning ? 'linear' : 'easeOut',
-            duration: isSpinning ? 0.1 : 0.8,
+            duration: isSpinning ? 0.06 : 0.6, // Faster spinning, quicker settle
           }}
         >
           {slotContent.map((item, index) => (
@@ -97,12 +103,19 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
                 <span
                   className={clsx(
                     'label hero-text font-black capitalize',
-                    'cursor-pointer'
+                    'cursor-pointer transition-colors duration-300 ease-in-out',
+                    'hover:opacity-90'
                   )}
                   style={{
                     color: currentColors.accent,
                   }}
                   onClick={handleClick}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = currentColors.primary;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = currentColors.accent;
+                  }}
                 >
                   {item.emoji} {item.label}
                 </span>
