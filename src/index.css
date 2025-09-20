@@ -1,5 +1,41 @@
 @import 'tailwindcss';
-@import './assets/fonts/typography.css';
+
+/* Mattone - Display/Headings */
+@font-face {
+  font-family: 'Mattone';
+  src: url('/fonts/mattone/Mattone-Regular.woff2') format('woff2'),
+    url('/fonts/mattone/Mattone-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mattone';
+  src: url('/fonts/mattone/Mattone-Bold.woff2') format('woff2'),
+    url('/fonts/mattone/Mattone-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mattone';
+  src: url('/fonts/mattone/Mattone-Black.woff2') format('woff2'),
+    url('/fonts/mattone/Mattone-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Leiko - Serif/Elegant */
+@font-face {
+  font-family: 'Leiko';
+  src: url('/fonts/leiko/Leiko-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   --font-mattone: 'Mattone', sans-serif;
