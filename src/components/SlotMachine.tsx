@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import data from '../assets/data.json';
-import { usePalettes } from '../hooks/usePalettes';
+import { usePalettes } from '../contexts/PaletteContext';
+import clsx from 'clsx';
 
 interface SlotContent {
   label: string;
@@ -49,10 +50,7 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
   };
 
   return (
-    <div
-      className={`slot-machine cursor-pointer transition-opacity duration-200 hover:opacity-80 ${className}`}
-      onClick={handleClick}
-    >
+    <div className={clsx('slot-machine', className)}>
       <div className='slot-window'>
         <motion.div
           className='slot-items'
@@ -69,11 +67,14 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
             <div key={`${item.label}-${index}`} className='slot-item'>
               <div className='flex items-end gap-1'>
                 <span
-                  className='label text-6xl md:text-8xl font-mattone font-bold capitalize leading-tight'
+                  className={clsx(
+                    'label text-6xl md:text-8xl font-mattone font-bold capitalize leading-tight',
+                    'transition-colors duration-500 ease-in-out hover:opacity-80 cursor-pointer'
+                  )}
                   style={{
                     color: currentColors.accent,
-                    transition: 'color 0.5s ease-in-out',
                   }}
+                  onClick={handleClick}
                 >
                   {item.label} {item.emoji}
                 </span>

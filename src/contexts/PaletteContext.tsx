@@ -1,4 +1,9 @@
-import { useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  type ReactNode,
+} from 'react';
 import data from '../assets/data.json';
 
 export interface Palette {
@@ -15,7 +20,24 @@ export interface Palettes {
   [key: string]: Palette;
 }
 
-export const usePalettes = () => {
+interface PaletteContextType {
+  palettes: Palettes;
+  currentPalette: string;
+  currentColors: Palette;
+  switchPalette: (paletteKey: string) => void;
+  switchToRandomPalette: () => void;
+  getAvailablePalettes: () => Array<{ key: string; name: string }>;
+}
+
+const PaletteContext = createContext<PaletteContextType | undefined>(undefined);
+
+interface PaletteProviderProps {
+  children: ReactNode;
+}
+
+export const PaletteProvider: React.FC<PaletteProviderProps> = ({
+  children,
+}) => {
   const [palettes] = useState<Palettes>(data.palettes);
 
   // Get random initial palette
@@ -24,12 +46,12 @@ export const usePalettes = () => {
     return paletteKeys[Math.floor(Math.random() * paletteKeys.length)];
   };
 
-  const [currentPalette, setCurrentPalette] = useState<string>(
-    getRandomPaletteKey()
-  );
+  // Initialize with the same random palette for both states
+  const initialPaletteKey = getRandomPaletteKey();
+  const [currentPalette, setCurrentPalette] =
+    useState<string>(initialPaletteKey);
   const [currentColors, setCurrentColors] = useState<Palette>(() => {
-    const randomKey = getRandomPaletteKey();
-    return data.palettes[randomKey as keyof typeof data.palettes];
+    return data.palettes[initialPaletteKey as keyof typeof data.palettes];
   });
 
   const switchPalette = (paletteKey: string) => {
@@ -54,7 +76,7 @@ export const usePalettes = () => {
     }));
   };
 
-  return {
+  const value: PaletteContextType = {
     palettes,
     currentPalette,
     currentColors,
@@ -62,4 +84,16 @@ export const usePalettes = () => {
     switchToRandomPalette,
     getAvailablePalettes,
   };
+
+  return (
+    <PaletteContext.Provider value={value}>{children}</PaletteContext.Provider>
+  );
+};
+
+export const usePalettes = (): PaletteContextType => {
+  const context = useContext(PaletteContext);
+  if (context === undefined) {
+    throw new Error('usePalettes must be used within a PaletteProvider');
+  }
+  return context;
 };

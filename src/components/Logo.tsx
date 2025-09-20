@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 interface LogoProps {
   zone1Color: string;
@@ -15,7 +16,7 @@ const Logo: React.FC<LogoProps> = ({
 }) => {
   return (
     <svg
-      className={`w-full h-full ${className}`}
+      className={clsx('w-full h-full', className)}
       viewBox='0 0 300 300'
       xmlns='http://www.w3.org/2000/svg'
       style={

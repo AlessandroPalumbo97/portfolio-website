@@ -1,29 +1,34 @@
 import './App.css';
 import Logo from './components/Logo';
 import { SlotMachine } from './components/SlotMachine';
-import { usePalettes } from './hooks/usePalettes';
+import { PaletteProvider, usePalettes } from './contexts/PaletteContext';
+import clsx from 'clsx';
 
-function App() {
+const AppContent = () => {
   const { currentColors, switchToRandomPalette } = usePalettes();
 
   return (
     <main
-      className='min-h-screen flex flex-col'
+      className={clsx(
+        'min-h-screen flex flex-col',
+        'transition-all duration-500 ease-in-out'
+      )}
       style={{
         backgroundColor: currentColors.background,
         color: currentColors.text,
-        transition: 'background-color 0.5s ease-in-out, color 0.5s ease-in-out',
       }}
     >
       {/* Main Content - Centered */}
       <div className='flex-1 flex items-center justify-center p-8 relative z-10'>
-        {/* Hi... LOVE Text - HUGE */}
+        {/* Hero text */}
         <div className='text-left'>
           <p
-            className='text-6xl md:text-8xl font-mattone font-normal leading-tight'
+            className={clsx(
+              'text-6xl md:text-8xl font-mattone font-normal leading-tight',
+              'transition-colors duration-500 ease-in-out'
+            )}
             style={{
               color: currentColors.text,
-              transition: 'color 0.5s ease-in-out',
             }}
           >
             Hi, I'm Alex
@@ -32,7 +37,7 @@ function App() {
           </p>
 
           {/* Slot Machine */}
-          <div className='-mt-2'>
+          <div className='-mt-2 max-w-4xl mx-auto'>
             <SlotMachine />
           </div>
         </div>
@@ -40,10 +45,12 @@ function App() {
 
       {/* Bottom Navbar */}
       <nav
-        className='fixed bottom-0 left-0 right-0 p-6 rounded-t-3xl shadow-2xl relative z-10'
+        className={clsx(
+          'fixed bottom-0 left-0 right-0 p-6 rounded-t-3xl shadow-2xl relative z-10',
+          'transition-colors duration-500 ease-in-out'
+        )}
         style={{
           backgroundColor: currentColors.surface,
-          transition: 'background-color 0.5s ease-in-out',
           boxShadow: `0 -10px 25px -5px rgba(0, 0, 0, 0.1), 0 -10px 10px -5px rgba(0, 0, 0, 0.04)`,
         }}
       >
@@ -63,6 +70,14 @@ function App() {
         </div>
       </nav>
     </main>
+  );
+};
+
+function App() {
+  return (
+    <PaletteProvider>
+      <AppContent />
+    </PaletteProvider>
   );
 }
 
