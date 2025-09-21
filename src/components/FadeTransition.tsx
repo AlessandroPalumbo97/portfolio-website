@@ -95,7 +95,7 @@ export const FadeTransition = ({ className = '' }: FadeTransitionProps) => {
         >
           <span
             className={clsx(
-              'label hero-text font-black capitalize',
+              'hero-text font-black capitalize',
               'cursor-pointer transition-colors duration-300 ease-in-out',
               'hover:opacity-90'
             )}
