@@ -17,7 +17,7 @@ export const FadeTransition = ({ className = '' }: FadeTransitionProps) => {
   const { currentColors } = usePalettes();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const slotContent: SlotContent[] = data['slot-content'];
+  const slotContent: SlotContent[] = data['hero-contents'];
 
   // Animation variants
   const emojiVariants = {
@@ -73,14 +73,17 @@ export const FadeTransition = ({ className = '' }: FadeTransitionProps) => {
           key={currentIndex}
           initial={{
             opacity: 0,
+            filter: 'blur(8px)',
             y: 20,
           }}
           animate={{
             opacity: 1,
+            filter: 'blur(0px)',
             y: 0,
           }}
           exit={{
             opacity: 0,
+            filter: 'blur(8px)',
             y: -20,
           }}
           transition={{

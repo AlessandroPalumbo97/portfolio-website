@@ -19,7 +19,7 @@
       "text": "#030303"
     }
   },
-  "slot-content": [
+  "hero-contents": [
     { "label": "coding", "emoji": "💻" },
     { "label": "design", "emoji": "🎨" },
     { "label": "video games", "emoji": "🎮" },
@@ -56,12 +56,14 @@
     { "label": "one punch man", "emoji": "👊" },
     { "label": "dragon ball", "emoji": "🐉" },
     { "label": "chainsaw man", "emoji": "🪚" },
-    { "label": "tokyo revengers", "emoji": "🌆" },
+    { "label": "tokyo revengers", "emoji": "🤼‍♂️" },
+    { "label": "hajime no ippo", "emoji": "🥊" },
     { "label": "jujutsu kaisen", "emoji": "🔮" },
     { "label": "black clover", "emoji": "🌙" },
     { "label": "hunter x hunter", "emoji": "🎭" },
     { "label": "demon slayer", "emoji": "👹" },
     { "label": "dororo", "emoji": "🪆" },
+    { "label": "gachiakuta", "emoji": "🗑️" },
     { "label": "neon genesis evangelion", "emoji": "🔥" },
     { "label": "hells paradise", "emoji": "🌺" },
     { "label": "fullmetal alchemist", "emoji": "⚗️" },

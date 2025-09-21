@@ -19,7 +19,7 @@ export const SlotMachine = ({ className = '' }: SlotMachineProps) => {
   const [isSpinning, setIsSpinning] = useState(false);
   const [itemHeight, setItemHeight] = useState(192); // Default mobile height
   const slotItemRef = useRef<HTMLDivElement>(null);
-  const slotContent: SlotContent[] = data['slot-content'];
+  const slotContent: SlotContent[] = data['hero-contents'];
 
   // Set initial index to "coding" on component mount
   useEffect(() => {
