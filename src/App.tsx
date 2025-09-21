@@ -1,5 +1,5 @@
 import './App.css';
-import { SlotMachine } from './components/SlotMachine';
+import { FadeTransition } from './components/FadeTransition';
 import Navbar from './components/Navbar';
 import { PaletteProvider, usePalettes } from './contexts/PaletteContext';
 import clsx from 'clsx';
@@ -19,24 +19,23 @@ const AppContent = () => {
       }}
     >
       {/* Main Content - Centered */}
-      <div className='flex-1 flex items-center justify-center p-8 relative z-10'>
+      <div className='flex flex-1 w-full'>
         {/* Hero text */}
-        <div className='text-left'>
+        <div className='flex flex-col w-full px-12 py-8'>
           <p
             className={clsx('hero-text')}
             style={{
               color: currentColors.text,
             }}
           >
-            Hi, I'm Alex
+            Hi, I'm <span className='font-bold'>Alex</span>
             <br />
-            and I love
+            and I <span className='font-bold'>love</span>
           </p>
 
-          {/* Slot Machine */}
-          <div className=''>
-            <SlotMachine />
-          </div>
+          {/* Fade Transition */}
+          <FadeTransition />
+          {/* <SlotMachine /> */}
         </div>
       </div>
 
